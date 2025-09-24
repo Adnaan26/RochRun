@@ -24,7 +24,7 @@ Go back to Android studio and select **Add the Firebase Authentication SDK to yo
 <img width="350" height="200" alt="image" src="https://github.com/user-attachments/assets/3b4bdbdd-dad2-4878-97dc-45dd2a6755fd" /><br>
 **Step 8:** <br>
 Once completed, go to your Firebase Console and click on your project. Select **Authentication** under the **Build** tab<br>
-<img width="150" height="150" alt="image" src="https://github.com/user-attachments/assets/2c247615-eff5-4627-b75f-7ca536325cce" /><br>
+<img width="200" height="200" alt="image" src="https://github.com/user-attachments/assets/2c247615-eff5-4627-b75f-7ca536325cce" /><br>
 **Step 8:** <br>
 Select your preferred sign-in method. In this case we are using **Email/Password**<br>
 <img width="500" height="200" alt="image" src="https://github.com/user-attachments/assets/2aaa2a90-8328-45cf-84c2-f9ebadc65443" /><br>

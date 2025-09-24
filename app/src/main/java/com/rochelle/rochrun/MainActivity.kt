@@ -35,6 +35,7 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        //Animation for cardview
         val cardView = findViewById<MaterialCardView>(R.id.cardContainer)
         val fadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in)
         cardView.startAnimation(fadeIn)
@@ -49,39 +50,48 @@ class MainActivity : AppCompatActivity() {
         // Initialising auth object
         auth = FirebaseAuth.getInstance()
 
+        //animation for button click
         val clickAnim = AnimationUtils.loadAnimation(this, R.anim.button_click)
         btnSignUp.setOnClickListener {
             it.startAnimation(clickAnim)
             signUpUser()
         }
 
-        // switching from signUp Activity to Login Activity
+        // switching from signUp to Login
         tvRedirectLogin.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
     }
 
+    //method to signup/register
     private fun signUpUser() {
         val email = etEmail.text.toString()
         val pass = etPass.text.toString()
         val confirmPassword = etConfPass.text.toString()
 
-        // check pass
+        // checks if any fields are blank
         if (email.isBlank() || pass.isBlank() || confirmPassword.isBlank()) {
+            //display toast if any of the fields are blank - all fields must be filled in
             Toast.makeText(this, "Email and Password can't be blank", Toast.LENGTH_SHORT).show()
             return
         }
 
+        //checks if password and confirm password match
         if (pass != confirmPassword) {
+            //displays toast if they don't match
             Toast.makeText(this, "Password and Confirm Password do not match", Toast.LENGTH_SHORT)
                 .show()
             return
         }
-        // If all credential are correct
-        // We call createUserWithEmailAndPassword
-        // using auth object and pass the
-        // email and pass in it.
+
+        /*
+        If all of the above passes, we use the auth object and pass through the email and password
+        This is saving our user in Firebase - you can check under the Authentication tab, under users
+        if your data was saved
+        NOTE: if you don't add authentication on the Firebase console for the app, you will have a failed
+        signup even though your app is connected
+         */
         val intent = Intent(this, LoginActivity::class.java)
         auth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(this) {
             if (it.isSuccessful) {

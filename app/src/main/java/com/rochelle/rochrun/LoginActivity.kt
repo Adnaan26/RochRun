@@ -33,6 +33,7 @@ class LoginActivity : AppCompatActivity() {
             insets
         }
 
+        //Animation for card View
         val cardView = findViewById<MaterialCardView>(R.id.cardContainer)
         val fadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in)
         cardView.startAnimation(fadeIn)
@@ -46,12 +47,14 @@ class LoginActivity : AppCompatActivity() {
         // initialising Firebase auth object
         auth = FirebaseAuth.getInstance()
 
+        //animation for button click
         val clickAnim = AnimationUtils.loadAnimation(this, R.anim.button_click)
         btnLogin.setOnClickListener {
             it.startAnimation(clickAnim)
             login()
         }
 
+        //redirects to MainActivity/SignUp
         tvRedirectSignUp.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
@@ -60,16 +63,19 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    //method created for login
     private fun login() {
+        //setting variables to values in textboxes
         val email = etEmail.text.toString()
         val pass = etPass.text.toString()
         // calling signInWithEmailAndPassword(email, pass)
         // function using Firebase auth object
-        // On successful response Display a Toast
         auth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(this) {
             if (it.isSuccessful) {
-                Toast.makeText(this, "Successfully LoggedIn", Toast.LENGTH_SHORT).show()
+                //if login successful
+                Toast.makeText(this, "Successfully Logged In", Toast.LENGTH_SHORT).show()
             } else
+            //if login fails
                 Toast.makeText(this, "Log In failed ", Toast.LENGTH_SHORT).show()
         }
     }

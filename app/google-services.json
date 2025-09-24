@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "845282831822",
+    "project_id": "rochrun",
+    "storage_bucket": "rochrun.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:845282831822:android:4ba41c36192f0ef4f04f9f",
+        "android_client_info": {
+          "package_name": "com.rochelle.rochrun"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANWKe0L47DtPxt7qou7hynfeUJIaaM-Qc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

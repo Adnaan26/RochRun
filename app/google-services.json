@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "845282831822",
-    "project_id": "rochrun",
-    "storage_bucket": "rochrun.firebasestorage.app"
+    "project_number": "898790379133",
+    "project_id": "adnaanicetask",
+    "storage_bucket": "adnaanicetask.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:845282831822:android:4ba41c36192f0ef4f04f9f",
+        "mobilesdk_app_id": "1:898790379133:android:77442622e4b403d374ab14",
         "android_client_info": {
           "package_name": "com.rochelle.rochrun"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyANWKe0L47DtPxt7qou7hynfeUJIaaM-Qc"
+          "current_key": "AIzaSyBbb33b1WK8Ftp4jRw8mWoZWWGGKegVKMU"
         }
       ],
       "services": {

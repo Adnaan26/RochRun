@@ -68,12 +68,22 @@ class LoginActivity : AppCompatActivity() {
         //setting variables to values in textboxes
         val email = etEmail.text.toString()
         val pass = etPass.text.toString()
+
+        if(email.isEmpty() || pass.isEmpty()){
+            Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
+            return
+        }
         // calling signInWithEmailAndPassword(email, pass)
         // function using Firebase auth object
-        auth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(this) {
-            if (it.isSuccessful) {
+        auth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(this) { task ->
+            if (task.isSuccessful) {
                 //if login successful
                 Toast.makeText(this, "Successfully Logged In", Toast.LENGTH_SHORT).show()
+
+                val intent = Intent(this, HomeActivity::class.java)
+                startActivity(intent)
+                // using finish() to end the activity
+                finish()
             } else
             //if login fails
                 Toast.makeText(this, "Log In failed ", Toast.LENGTH_SHORT).show()

@@ -3,16 +3,18 @@ package com.rochelle.rochrun
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 
 class ProductAdapter(private val productList: List<Product>) :
     RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
     class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val nameText: TextView = itemView.findViewById(R.id.product_name)
-        val descriptionText: TextView = itemView.findViewById(R.id.product_description)
-        val priceText: TextView = itemView.findViewById(R.id.product_price)
+        val productName: TextView = itemView.findViewById(R.id.productName)
+        val price: TextView = itemView.findViewById(R.id.productPrice)
+        val img: ImageView = itemView.findViewById(R.id.productImage)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
@@ -23,9 +25,12 @@ class ProductAdapter(private val productList: List<Product>) :
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         val product = productList[position]
-        holder.nameText.text = product.name
-        holder.descriptionText.text = product.description
-        holder.priceText.text = "R${product.price}"
+        holder.productName.text = product.productName
+        holder.price.text = "R${product.price}"
+
+        Glide.with(holder.itemView.context)
+            .load(product.imageUrl)
+            .into(holder.img)
     }
 
     override fun getItemCount(): Int = productList.size
